@@ -234,7 +234,7 @@ class KITTIDataset(Dataset):
 			idx = idx % self.num_samples
 			img = self.get_right_image(idx)
 			calib = self.get_calibration(idx, use_right_cam=True)
-			objs = None if self.split == 'test' else self.get_label_objects(idx)
+			objs = [] if self.split == 'test' else self.get_label_objects(idx)
 
 			use_right_img = True
 			# generate the bboxes for right color image
@@ -254,7 +254,7 @@ class KITTIDataset(Dataset):
 			# utilize left color image
 			img = self.get_image(idx)
 			calib = self.get_calibration(idx)
-			objs = None if self.split == 'test' else self.get_label_objects(idx)
+			objs =  [] if self.split == 'test' else self.get_label_objects(idx)
 
 			use_right_img = False
 
